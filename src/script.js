@@ -2,10 +2,13 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
+import { ObjectSpaceNormalMap } from 'three'
+
 
 //loading
 const textureLoader = new THREE.TextureLoader()
 const normalTexture = textureLoader.load('/texture/NormalMap.png')
+
 
 // Debug
 const gui = new dat.GUI()
@@ -132,6 +135,9 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
+
+
+
 /**
  * Animate
  */
@@ -179,3 +185,19 @@ const tick = () =>
 }
 
 tick()
+
+const audio = document.querySelector('#audio');
+const id = setInterval(() => {
+    audio.play().then(() => {
+        clearInterval(id);
+    }).catch(() => {
+    });
+}, 1000);
+
+document.addEventListener("visibilitychange", event => {
+    if (document.visibilityState == "visible") {
+        audio.play()
+    } else {
+        audio.pause()
+    }
+});

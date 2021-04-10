@@ -1,5 +1,5 @@
 # Space using Three.js
-Courtesy of Gary Simon of https://github.com/designcourse/threejs-webpack-starter who has made this great setup for starting three.js
+Courtesy of Gary Simon of https://github.com/designcourse/threejs-webpack-starter who has made this webpack starter for three.js
 
 ## Setup
 ```
